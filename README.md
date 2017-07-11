@@ -20,7 +20,7 @@ Por envolver a interface de usuário da aplicação, o SDK funciona apenas como 
 
 ## Dependências
 
-* PHP >= 5.6
+* PHP >= 5.3
 
 ## Instalando o SDK
 
@@ -89,17 +89,20 @@ $payment->setType(Payment::PAYMENTTYPE_CREDITCARD)
 // Crie o pagamento na Cielo
 try {
     // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
-    $sale = (new CieloEcommerce($merchant, $environment))->createSale($sale);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->createSale($sale);
 
     // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
     // dados retornados pela Cielo
     $paymentId = $sale->getPayment()->getPaymentId();
 
     // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
-    $sale = (new CieloEcommerce($merchant, $environment))->captureSale($paymentId, 15700, 0);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->captureSale($paymentId, 15700, 0);
 
     // E também podemos fazer seu cancelamento, se for o caso
-    $sale = (new CieloEcommerce($merchant, $environment))->cancelSale($paymentId, 15700);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->cancelSale($paymentId, 15700);
 } catch (CieloRequestException $e) {
     // Em caso de erros de integração, podemos tratar o erro aqui.
     // os códigos de erro estão todos disponíveis no manual de integração.
@@ -154,17 +157,20 @@ $payment->setRecurrentPayment($recurrent)
 // Crie o pagamento na Cielo
 try {
     // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
-    $sale = (new CieloEcommerce($merchant, $environment))->createSale($sale);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->createSale($sale);
 
     // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
     // dados retornados pela Cielo
     $paymentId = $sale->getPayment()->getPaymentId();
 
     // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
-    $sale = (new CieloEcommerce($merchant, $environment))->captureSale($paymentId, 15700, 0);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->captureSale($paymentId, 15700, 0);
 
     // E também podemos fazer seu cancelamento, se for o caso
-    $sale = (new CieloEcommerce($merchant, $environment))->cancelSale($paymentId, 15700);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->cancelSale($paymentId, 15700);
 } catch (CieloRequestException $e) {
     // Em caso de erros de integração, podemos tratar o erro aqui.
     // os códigos de erro estão todos disponíveis no manual de integração.
@@ -218,7 +224,8 @@ $payment->debitCard("123", "Visa")
 // Crie o pagamento na Cielo
 try {
     // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
-    $sale = (new CieloEcommerce($merchant, $environment))->createSale($sale);
+    $cielo new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->createSale($sale);
 
     // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
     // dados retornados pela Cielo
@@ -286,7 +293,8 @@ $payment = $sale->payment(15700)
 // Crie o pagamento na Cielo
 try {
     // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
-    $sale = (new CieloEcommerce($merchant, $environment))->createSale($sale);
+    $cielo = new CieloEcommerce($merchant, $environment);
+    $sale = $cielo->createSale($sale);
 
     // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
     // dados retornados pela Cielo

@@ -28,7 +28,7 @@ class UpdateSaleRequest extends AbstractSaleRequest
     public function execute($paymentId)
     {
         $url = $this->environment->getApiUrl() . '1/sales/' . $paymentId . '/' . $this->type;
-        $params = [];
+        $params = array();
         
         if ($this->amount != null) {
             $params['amount'] = $this->amount;

@@ -165,7 +165,7 @@ class Payment implements \JsonSerializable
         $this->returnMessage = isset($data->ReturnMessage)? $data->ReturnMessage: null;
         $this->status = isset($data->Status)? $data->Status: null;
 
-        $this->links = isset($data->Links)? $data->Links: [];
+        $this->links = isset($data->Links)? $data->Links: array();
 
         $this->assignor = isset($data->Assignor)? $data->Assignor: null;
         $this->demonstrative = isset($data->Demonstrative)? $data->Demonstrative: null;

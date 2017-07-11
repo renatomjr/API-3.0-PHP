@@ -20,14 +20,14 @@ abstract class AbstractSaleRequest
 
     protected function sendRequest($method, $url, Sale $sale = null)
     {
-        $headers = [
+        $headers = array(
             'Accept: application/json',
             'Accept-Encoding: gzip',
             'User-Agent: CieloEcommerce/3.0 PHP SDK',
             'MerchantId: ' . $this->merchant->getId(),
             'MerchantKey: ' . $this->merchant->getKey(),
             'RequestId: ' . uniqid()
-        ];
+        );
         
         $curl = curl_init($url);
         
