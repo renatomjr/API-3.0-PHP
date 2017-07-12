@@ -45,7 +45,7 @@ abstract class AbstractSaleRequest
         }
         
         if ($sale !== null) {
-            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($sale));
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($sale->jsonSerialize()));
             
             $headers[] = 'Content-Type: application/json';
         } else {

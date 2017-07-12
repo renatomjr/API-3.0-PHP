@@ -9,7 +9,8 @@
 	"license" : "MIT",
 	"type" : "library",
 	"require" : {
-		"php" : ">=5.3"
+		"php" : ">=5.3",
+		"packfire/php5.3-compat": "1.0.0"
 	},
 	"homepage" : "https://github.com/DeveloperCielo/API-3.0-PHP"
 }

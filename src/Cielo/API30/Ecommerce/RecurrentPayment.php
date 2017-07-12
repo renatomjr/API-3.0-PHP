@@ -41,7 +41,13 @@ class RecurrentPayment implements \JsonSerializable
 
     public function jsonSerialize()
     {
-        return get_object_vars($this);
+        $vars = get_object_vars($this);
+        foreach ($vars as &$var) {
+            if ($var instanceof \JsonSerializable) {
+                $var = $var->jsonSerialize();
+            }
+        }
+        return $vars;
     }
 
     public function populate(\stdClass $data)
